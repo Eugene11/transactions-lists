@@ -1,0 +1,145 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+$thin_block_border: 1px solid #000;
+
+ul.hr {
+    margin: 0;
+    padding: 4px;
+}
+ul.hr {
+    li {
+        display: inline;
+        margin-right: 5px;
+        border: $thin_block_border;
+        padding: 3px;
+    }
+}
+
+$table-cell_margin : 10px;
+$table-cell_float : left;
+$table-cell_text-align : center;
+$table-cell_label_font-weight : bold;
+$table-cell_div_overflow : hidden;
+$table-cell_div_white-space : nowrap;
+$table-cell_div_text-overflow : ellipsis;
+
+div.table-cell {
+    margin-left: $table-cell_margin;
+    text-align: $table-cell_text-align;
+    float: $table-cell_float;
+    label {
+        font-weight: $table-cell_label_font-weight;
+    }
+    div {
+        overflow: $table-cell_div_overflow;
+        white-space: $table-cell_div_white-space;
+        text-overflow: $table-cell_div_text-overflow;
+    }
+    width: 19%
+}
+
+$transaction-list-table_margin-top: 20px;
+$transaction-list-table_min-width: 1000px;
+
+
+div.transaction-content {
+    margin-top: $transaction-list-table_margin-top;
+    min-width: $transaction-list-table_min-width;
+    border: $thin_block_border;
+}
+
+label.transaction-form-group_amount-label {
+    float: left;
+    margin-left: 20px;
+}
+
+label.transaction-form-group_bank-label {
+    float: left;
+    margin-left: 15px;
+}
+
+input.transaction-form-group_amount-input {
+    float: left;
+    margin-left: 30px;
+}
+
+div.transaction-form-group_bank-select {
+    float: left;
+    margin-left: 10px;
+}
+
+div.transaction-form-group_button {
+    margin-left: 90px;
+}
+
+div.clear-class {
+    clear: both
+}
+
+div.transaction-form-content {
+    margin-top: $transaction-list-table_margin-top;
+    width: 300px;
+    border: $thin_block_border;
+}
+
+div.login-content {
+    width: 400px;
+    border: $thin_block_border;
+    margin-left: 35%;
+    margin-top: 10%;
+    h2 {
+        margin-left: 30%;
+    }
+}
+
+
+div.login-content_form_form-group-login {
+    label {
+        margin-left: 10px;
+    }
+    input {
+        margin-left: 6px;
+    }
+}
+
+div.login-content_form_form-group-password {
+    label {
+        margin-left: 10px;
+    }
+    input {
+        margin-left: 10px;
+    }
+}
+
+div.login-content_form_form-group-button {
+    button {
+        margin-left: 28%;
+    }
+}
