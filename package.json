@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "chance": "^1.0.13",
-    "history": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "chance": "1.0.13",
+    "history": "4.7.2",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-redux": "5.0.7",
+    "react-router-dom": "4.2.2",
+    "react-scripts": "1.1.1",
+    "redux": "3.7.2",
+    "redux-thunk": "2.2.0"
   },
   "scripts": {
     "start-js": "react-scripts start",
@@ -21,10 +23,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "node-sass-chokidar": "^1.1.2",
-    "npm-run-all": "^4.1.2",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "unique-id-mixin": "^1.0.0"
+    "node-sass-chokidar": "1.1.2",
+    "npm-run-all": "4.1.2"
   }
 }

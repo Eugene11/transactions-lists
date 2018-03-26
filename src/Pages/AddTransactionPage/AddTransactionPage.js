@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {BanksItems} from '../../components/BanksItems';
-import {transactionsActions} from "../../actions/index";
-import {SiteMap} from "../../components/SiteMap"
+import {BanksItems} from 'components/BanksItems';
+import {transactionsActions, banksActions} from 'actions/index';
+import {SiteMap} from 'components/SiteMap';
 
 class AddTransactionPage extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            amount : "",
-            bankId: 1,
-        };
-
+        this.state = {amount: null, bankId: null};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        if (!this.props.banks)
+            this.props.dispatch(banksActions.getBanks());
+    }
+
+    componentWillReceiveProps(nextProps){
+
+        if (this.props.banks !== nextProps.banks ) {
+            let firstBank = nextProps.banks[0];
+            if (firstBank) {
+                this.setState({
+                    amount : "",
+                    bankId: firstBank.id,
+                });
+            }
+        }
+
     }
 
     handleChange(e) {
@@ -26,7 +40,7 @@ class AddTransactionPage extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const { amount, bankId } = this.state;
+        let { amount, bankId } = this.state;
         const { dispatch } = this.props;
         if (amount && bankId) {
             dispatch(transactionsActions.addBankTransaction(amount, bankId));
@@ -71,9 +85,10 @@ class AddTransactionPage extends Component {
 
 
 function mapStateToProps(state) {
-    const { transactions } = state;
+    const { transactions, banks } = state;
     return {
-        transactions
+        transactions: transactions,
+        banks: banks.banks
     };
 }
 

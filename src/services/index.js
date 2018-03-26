@@ -1,4 +1,4 @@
-export * from './user.service';
-export * from './banks.service';
-export * from './transactions.service';
+export * from 'services/user.service';
+export * from 'services/banks.service';
+export * from 'services/transactions.service';
 
