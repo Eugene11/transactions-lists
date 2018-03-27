@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Router } from 'react-router-dom';
 import { connect } from 'react-redux';
-import 'Custom.css';
 import { PrivateRoute, PublicRoute, Loading } from 'components/index';
 import { history } from 'helpers/index';
 import { userActions } from 'actions/index';
