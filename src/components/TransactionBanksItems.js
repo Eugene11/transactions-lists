@@ -10,10 +10,10 @@ class TransactionBanksItems extends Component {
                 if (item.id === this.props.bankId)
                     return <span key={this.props.transactionItem.id}>{item.name}</span>;
                 else
-                    return "";
+                    return null;
             }
             );
-        } //
+        }
 
         return (
             <div className={this.props.className}>

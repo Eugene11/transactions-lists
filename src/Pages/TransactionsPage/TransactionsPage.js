@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Transaction} from 'components/Transaction';
-import {Loading} from 'components/Loading';
-import {transactionsActions, banksActions} from 'actions/index';
-import {SiteMap} from 'components/SiteMap'
-import {TableTransactionsHeader} from 'components/TableTransactionsHeader'
+import {Transaction} from '../../components/Transaction';
+import {transactionsActions} from "../../actions/index";
+import {SiteMap} from "../../components/SiteMap"
+import {TableTransactionsHeader} from "../../components/TableTransactionsHeader"
 
 class TransactionsPage extends Component {
 
@@ -33,28 +32,21 @@ class TransactionsPage extends Component {
 
         if ( this.props.transactions !== undefined ) {
             transactions = this.props.transactions.map((item, index) =>
-                <Transaction key={item.id+"_"+index} transactionItem={item} sortIndex={index}/>
+                <Transaction key={item.id+"__"+index} transactionItem={item} sortIndex={index}/>
             );
         }
 
-        if (this.state.loadingTransactions && this.state.loadingBanks) {
-            return (
-                <Loading></Loading>
-            );
-        }
-        else {
-            return (
-                <div className="transaction-list">
-                    <SiteMap pageCode="TransactionsPage"/>
-                    <div className="transaction-content">
-                        <TableTransactionsHeader />
-                        <div>
-                            {transactions}
-                        </div>
+        return (
+            <div className="transaction-list">
+                <SiteMap pageCode="TransactionsPage"/>
+                <div className="transaction-content">
+                    <TableTransactionsHeader />
+                    <div>
+                        {transactions}
                     </div>
                 </div>
-            );
-        }
+            </div>
+        );
     }
 }
 function mapStateToProps(state) {
