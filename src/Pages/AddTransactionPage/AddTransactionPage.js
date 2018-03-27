@@ -14,8 +14,18 @@ class AddTransactionPage extends Component {
     }
 
     componentDidMount() {
-        if (!this.props.banks)
+        if (!this.props.banks) {
             this.props.dispatch(banksActions.getBanks());
+        }
+        else {
+            let firstBank = this.props.banks[0];
+            if (firstBank) {
+                this.setState({
+                    amount : "",
+                    bankId: firstBank.id,
+                });
+            }
+        }
     }
 
     componentWillReceiveProps(nextProps){
