@@ -1,6 +1,7 @@
 export const userService = {
     login,
-    logout,
+    checkLogin,
+    logout
 };
 
 function login(username, password) {
@@ -13,6 +14,27 @@ function login(username, password) {
     else {
         return Promise.reject("Incorrect login or password");
     }
+}
+
+
+function checkLogin(username) {
+    //const user = {"logged": true};
+    const requestOptions = {
+        method: 'GET'
+    };
+
+    return fetch('/ok.json', requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                return Promise.reject(response.statusText);
+            }
+
+            return response.json();
+        })
+        .then(ok => {
+            let user = localStorage.getItem('user');
+            return Promise.resolve(user);
+        });
 }
 
 

@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {banksActions} from "../actions";
 
 class BanksItems extends Component {
-
-    componentDidMount() {
-        let banksData =  [ {"id": 1, "name": "Bank 1"}, {"id": 2, "name": "Bank 2"}, {"id": 3, "name": "Bank 3"},
-            {"id": 4, "name": "Bank 4"}, {"id": 5, "name": "Bank 5"}];
-        localStorage.setItem("banks", JSON.stringify(banksData));
-        this.props.dispatch(banksActions.getBanks());
-    }
 
     render() {
         let listBanks;

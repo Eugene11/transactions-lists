@@ -1,5 +1,5 @@
-import {transactionsConstants} from "../constants";
-import {transactionsService} from "../services";
+import {transactionsConstants} from 'constants/index';
+import {transactionsService} from 'services/index';
 
 export const transactionsActions = {
     addBankTransaction,

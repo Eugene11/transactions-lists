@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { authentication } from './authentication.reducer';
-import { alert } from './alert.reducer';
-import { banks } from './banks.reducer';
-import { transactions } from './transactions.reducer';
+import { authentication } from 'reducers/authentication.reducer';
+import { alert } from 'reducers/alert.reducer';
+import { banks } from 'reducers/banks.reducer';
+import { transactions } from 'reducers/transactions.reducer';
 
 const rootReducer = combineReducers({
     authentication,

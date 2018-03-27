@@ -1,4 +1,4 @@
-import {banksConstants} from "../constants";
+import {banksConstants} from 'constants/index';
 
 export function banks(state = {}, action) {
     switch (action.type) {

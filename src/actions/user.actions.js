@@ -1,10 +1,11 @@
-import { userConstants } from '../constants';
-import { userService } from '../services';
-import { alertActions } from '../actions';
-import { history } from '../helpers';
+import { userConstants } from 'constants/index';
+import { userService } from 'services/index';
+import { alertActions, banksActions } from 'actions/index';
+import { history } from 'helpers/index';
 
 export const userActions = {
     login,
+    checkLogin,
     logout,
 };
 
@@ -17,6 +18,7 @@ function login(username, password) {
                 user => {
                     dispatch(success(user));
                     dispatch(alertActions.success(null));
+                    dispatch(banksActions.fillBanks())
                     history.push('/');
                 },
                 error => {
@@ -31,6 +33,25 @@ function login(username, password) {
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 
+
+function checkLogin(username) {
+    return dispatch => {
+        userService.checkLogin(username)
+            .then(
+                user => {
+                    dispatch(success(user));
+                },
+                error => {
+                    alert("user Error " + error);
+                }
+            );
+    };
+
+    function success(user) { return { type: userConstants.LOGIN_CHECK, user } }
+
+
+
+}
 
 function logout() {
     userService.logout();

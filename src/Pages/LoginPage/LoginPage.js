@@ -1,14 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { userActions } from '../../actions/index';
+import { userActions } from 'actions/index';
 
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
-
-        this.props.dispatch(userActions.logout());
-
         this.state = {
             username: '',
             password: '',
@@ -83,10 +80,8 @@ class LoginPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
     const { alert } = state;
     return {
-        loggingIn,
         alert
     };
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {BanksItems} from "./BanksItems";
-import {transactionsActions} from "../actions";
+import {TransactionBanksItems} from 'components/TransactionBanksItems';
+import {transactionsActions} from 'actions/index';
 
 class Transaction extends Component {
 
@@ -31,7 +31,9 @@ class Transaction extends Component {
                         <div>{this.props.transactionItem.amount}</div>
                     </div>
                     <div className="table-cell table-cell-column">
-                        <BanksItems bankId={this.props.transactionItem.bankId} disabled={true}/>
+                        <TransactionBanksItems key={this.props.transactionItem.id}
+                                               bankId={this.props.transactionItem.bankId}
+                                               transactionItem={this.props.transactionItem} />
                     </div>
                     <div className="table-cell table-cell-column">
                         <button onClick={(e) => this.handleDelete(e)}> Delete </button>

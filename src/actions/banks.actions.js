@@ -1,9 +1,15 @@
-import {banksService} from "../services";
-import {banksConstants} from "../constants";
+import {banksService} from 'services/index';
+import {banksConstants} from 'constants/index';
 
 export const banksActions = {
-    getBanks
+    getBanks,
+    fillBanks
 };
+
+function fillBanks() {
+    let banks = banksService.fillBanks();
+    return { type: banksConstants.BANKS_GET_SUCCESS, banks }
+}
 
 function getBanks() {
 
