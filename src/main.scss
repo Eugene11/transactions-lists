@@ -50,7 +50,7 @@ $table-cell_div_overflow : hidden;
 $table-cell_div_white-space : nowrap;
 $table-cell_div_text-overflow : ellipsis;
 
-div.table-cell {
+div.table__cell {
     margin-left: $table-cell_margin;
     text-align: $table-cell_text-align;
     float: $table-cell_float;
@@ -69,47 +69,47 @@ $transaction-list-table_margin-top: 20px;
 $transaction-list-table_min-width: 1000px;
 
 
-div.transaction-content {
+div.transaction__content {
     margin-top: $transaction-list-table_margin-top;
     min-width: $transaction-list-table_min-width;
     border: $thin_block_border;
 }
 
-label.transaction-form-group_amount-label {
+label.transaction_form__group__amount_label {
     float: left;
     margin-left: 20px;
 }
 
-label.transaction-form-group_bank-label {
+label.transaction_form__group__bank__label {
     float: left;
     margin-left: 15px;
 }
 
-input.transaction-form-group_amount-input {
+input.transaction_form__group__amount__input {
     float: left;
     margin-left: 30px;
 }
 
-div.transaction-form-group_bank-select {
+div.transaction_form__group__bank__select {
     float: left;
     margin-left: 10px;
 }
 
-div.transaction-form-group_button {
+div.transaction_form__group__button {
     margin-left: 90px;
 }
 
-div.clear-class {
+div.clear__class {
     clear: both
 }
 
-div.transaction-form-content {
+div.transaction_form__content {
     margin-top: $transaction-list-table_margin-top;
     width: 300px;
     border: $thin_block_border;
 }
 
-div.login-content {
+div.login__content {
     width: 400px;
     border: $thin_block_border;
     margin-left: 35%;
@@ -120,7 +120,7 @@ div.login-content {
 }
 
 
-div.login-content_form_form-group-login {
+div.login_content_form__form_group_login {
     label {
         margin-left: 10px;
     }
@@ -129,7 +129,7 @@ div.login-content_form_form-group-login {
     }
 }
 
-div.login-content_form_form-group-password {
+div.login_content_form__form_group_password {
     label {
         margin-left: 10px;
     }
@@ -138,7 +138,7 @@ div.login-content_form_form-group-password {
     }
 }
 
-div.login-content_form_form-group-button {
+div.login_content_form__form_group_button {
     button {
         margin-left: 28%;
     }

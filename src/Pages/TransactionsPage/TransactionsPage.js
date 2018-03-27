@@ -5,6 +5,7 @@ import {Loading} from 'components/Loading';
 import {transactionsActions, banksActions} from 'actions/index';
 import {SiteMap} from 'components/SiteMap'
 import {TableTransactionsHeader} from 'components/TableTransactionsHeader'
+import main from 'main.scss'
 
 class TransactionsPage extends Component {
 
@@ -45,7 +46,7 @@ class TransactionsPage extends Component {
             return (
                 <div className="transaction-list">
                     <SiteMap pageCode="TransactionsPage"/>
-                    <div className="transaction-content">
+                    <div className={main.transaction__content}>
                         <TableTransactionsHeader />
                         <div>
                             {transactions}

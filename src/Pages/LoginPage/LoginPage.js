@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import main from 'main.scss'
 import { userActions } from 'actions/index';
 
 class LoginPage extends React.Component {
@@ -41,33 +41,33 @@ class LoginPage extends React.Component {
                 {alert.message &&
                 <div className={`alert ${alert.type}`}>{alert.message}</div>
                 }
-                <div className="login-content">
-                    <div className="alert-info">
+                <div className={main.login__content}>
+                    <div className={main.alert__info} >
                         Username: name<br />
                         Password: pass
                     </div>
                     <h2>Login</h2>
                     <form name="login-content_form" onSubmit={this.handleSubmit}>
 
-                        <div className="login-content_form_form-group-login">
+                        <div className={main.login_content_form__form_group_login}>
                             <label htmlFor="username">Username</label>
-                            <input type="text" className="form-control" name="username"
+                            <input type="text" name="username"
                                    value={username} onChange={this.handleChange} />
                             {submitted && !username &&
-                            <label className="help-block">Username is required</label>
+                            <label>Username is required</label>
                             }
                         </div>
-                        <div className="login-content_form_form-group-password">
+                        <div className={main.login_content_form__form_group_password}>
                             <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" name="password"
+                            <input type="password" name="password"
                                    value={password} onChange={this.handleChange} />
                             {submitted && !password &&
-                            <label className="help-block">Password is required</label>
+                            <label>Password is required</label>
                             }
                         </div>
 
-                        <div className="login-content_form_form-group-button">
-                            <button className="btn btn-primary">Login</button>
+                        <div className={main.login_content_form__form_group_button}>
+                            <button>Login</button>
                         </div>
 
                     </form>

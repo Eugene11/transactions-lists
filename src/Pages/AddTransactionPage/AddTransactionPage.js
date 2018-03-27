@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {BanksItems} from 'components/BanksItems';
 import {transactionsActions, banksActions} from 'actions/index';
 import {SiteMap} from 'components/SiteMap';
+import main from 'main.scss'
 
 class AddTransactionPage extends Component {
 
@@ -62,25 +63,29 @@ class AddTransactionPage extends Component {
 
 
         return (
-            <div className="transaction-add-form">
+            <div>
                 <SiteMap pageCode="AddTransactionPage"/>
-                <div className="transaction-form-content">
+                <div className={main.transaction_form__content}>
                     <form name="transaction-form" onSubmit={this.handleSubmit}>
 
-                        <div className='transaction-form-group'>
+                        <div className='transaction_form__group'>
                             <div>
-                                <label className="transaction-form-group_amount-label" htmlFor="amount">Amount</label>
-                                <input className="transaction-form-group_amount-input form-control"
+                                <label className={main.transaction_form__group__amount_label}
+                                       htmlFor="amount">Amount</label>
+                                <input className={main.transaction_form__group__amount__input}
                                        type="text" name="amount" onChange={this.handleChange} />
                                 <div className="clear-class"></div>
                             </div>
                             <div>
-                                <label className="transaction-form-group_bank-label" htmlFor="bankId">Bank Name</label>
-                                <BanksItems className="transaction-form-group_bank-select" onChange={this.handleChange}/>
+                                <label
+                                    className={main.transaction_form__group__bank__label}
+                                    htmlFor="bankId">Bank Name</label>
+                                <BanksItems className={main.transaction_form__group__bank__select}
+                                            onChange={this.handleChange}/>
                             </div>
-                            <div className="clear-class"></div>
-                            <div className="transaction-form-group_button">
-                                <button className="btn btn-primary">Add</button>
+                            <div className={main.clear__class}></div>
+                            <div className={main.transaction_form__group__button}>
+                                <button>Add</button>
                             </div>
 
                             {this.props.transactions.lastTransaction &&

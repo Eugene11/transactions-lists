@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {TransactionBanksItems} from 'components/TransactionBanksItems';
 import {transactionsActions} from 'actions/index';
+import main from 'main.scss'
 
 class Transaction extends Component {
 
@@ -21,24 +22,24 @@ class Transaction extends Component {
             <div className="transaction-item">
                 <div>
 
-                    <div className="table-cell table-cell-id-column">
+                    <div className={main.table__cell}>
                         {this.props.transactionItem.id}
                     </div>
-                    <div className="table-cell table-cell-column">
+                    <div className={main.table__cell}>
                         {this.props.transactionItem.bankId}
                     </div>
-                    <div className="table-cell table-cell-column">
+                    <div className={main.table__cell}>
                         <div>{this.props.transactionItem.amount}</div>
                     </div>
-                    <div className="table-cell table-cell-column">
+                    <div className={main.table__cell}>
                         <TransactionBanksItems key={this.props.transactionItem.id}
                                                bankId={this.props.transactionItem.bankId}
                                                transactionItem={this.props.transactionItem} />
                     </div>
-                    <div className="table-cell table-cell-column">
+                    <div className={main.table__cell}>
                         <button onClick={(e) => this.handleDelete(e)}> Delete </button>
                     </div>
-                    <div style={{ clear: "both" }}></div>
+                    <div className={main.clear__class}></div>
                 </div>
             </div>
         );

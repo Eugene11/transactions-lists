@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userActions } from 'actions/index';
+import main from 'main.scss'
 
 class SiteMap extends Component {
 
@@ -30,9 +31,9 @@ class SiteMap extends Component {
         );
 
         return (
-            <div className="site-map-list">
+            <div className="site__map__list">
                 <div>
-                    <ul className="hr">
+                    <ul className={main.hr}>
                         {listPages}
                     </ul>
                 </div>
