@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Transaction} from '../../components/Transaction';
-import {transactionsActions} from "../../actions/index";
-import {SiteMap} from "../../components/SiteMap"
-import {TableTransactionsHeader} from "../../components/TableTransactionsHeader"
+import {Transaction} from 'components/Transaction';
+import {Loading} from 'components/Loading';
+import {transactionsActions, banksActions} from 'actions/index';
+import {SiteMap} from 'components/SiteMap'
+import {TableTransactionsHeader} from 'components/TableTransactionsHeader'
 
 class TransactionsPage extends Component {
 
@@ -27,7 +28,6 @@ class TransactionsPage extends Component {
     }
 
     render() {
-
         let transactions;
 
         if ( this.props.transactions !== undefined ) {
@@ -36,17 +36,24 @@ class TransactionsPage extends Component {
             );
         }
 
-        return (
-            <div className="transaction-list">
-                <SiteMap pageCode="TransactionsPage"/>
-                <div className="transaction-content">
-                    <TableTransactionsHeader />
-                    <div>
-                        {transactions}
+        if (this.state.loadingTransactions && this.state.loadingBanks) {
+            return (
+                <Loading></Loading>
+            );
+        }
+        else {
+            return (
+                <div className="transaction-list">
+                    <SiteMap pageCode="TransactionsPage"/>
+                    <div className="transaction-content">
+                        <TableTransactionsHeader />
+                        <div>
+                            {transactions}
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 function mapStateToProps(state) {
