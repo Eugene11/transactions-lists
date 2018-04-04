@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import main from 'main.scss'
 import { userActions } from 'actions/index';
+import { history } from 'helpers/index';
+
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -22,14 +24,16 @@ class LoginPage extends React.Component {
         this.setState({ [name]: value });
     }
 
-    handleSubmit(e) {
+
+    handleSubmit = async(e) => {
         e.preventDefault();
 
         this.setState({ submitted: true });
         const { username, password } = this.state;
         const { dispatch } = this.props;
         if (username && password) {
-            dispatch(userActions.login(username, password));
+            await dispatch(userActions.login(username, password));
+            history.push('/');
         }
     }
 
@@ -73,7 +77,6 @@ class LoginPage extends React.Component {
                     </form>
                 </div>
             </div>
-
 
         );
     }

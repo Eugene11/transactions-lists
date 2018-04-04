@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import withBanks from 'decorators/withBanks';
 
+@withBanks
 class BanksItems extends Component {
 
     render() {

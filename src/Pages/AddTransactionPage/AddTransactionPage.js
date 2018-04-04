@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {BanksItems} from 'components/BanksItems';
-import {transactionsActions, banksActions} from 'actions/index';
+import {transactionsActions} from 'actions/index';
 import {SiteMap} from 'components/SiteMap';
 import main from 'main.scss'
 
@@ -14,24 +14,8 @@ class AddTransactionPage extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        if (!this.props.banks) {
-            this.props.dispatch(banksActions.getBanks());
-        }
-        else {
-            let firstBank = this.props.banks[0];
-            if (firstBank) {
-                this.setState({
-                    amount : "",
-                    bankId: firstBank.id,
-                });
-            }
-        }
-    }
-
     componentWillReceiveProps(nextProps){
-
-        if (this.props.banks !== nextProps.banks ) {
+        if (nextProps.banks !== this.props.banks) {
             let firstBank = nextProps.banks[0];
             if (firstBank) {
                 this.setState({
@@ -40,8 +24,8 @@ class AddTransactionPage extends Component {
                 });
             }
         }
-
     }
+
 
     handleChange(e) {
         const { name, value } = e.target;

@@ -16,9 +16,12 @@ function login(username, password) {
     }
 }
 
-
+/**
+ *
+ * @param username - this function is test example so username value is doesnt matter
+ * @returns {Promise<Response>}
+ */
 function checkLogin(username) {
-    //const user = {"logged": true};
     const requestOptions = {
         method: 'GET'
     };
@@ -33,7 +36,7 @@ function checkLogin(username) {
         })
         .then(ok => {
             let user = localStorage.getItem('user');
-            return Promise.resolve(user);
+            return user;
         });
 }
 

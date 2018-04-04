@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {TransactionBanksItems} from 'components/TransactionBanksItems';
+import {BankName} from 'components/index';
 import {transactionsActions} from 'actions/index';
 import main from 'main.scss'
 
@@ -32,9 +32,11 @@ class Transaction extends Component {
                         <div>{this.props.transactionItem.amount}</div>
                     </div>
                     <div className={main.table__cell}>
-                        <TransactionBanksItems key={this.props.transactionItem.id}
+                        <BankName key={this.props.transactionItem.id}
                                                bankId={this.props.transactionItem.bankId}
-                                               transactionItem={this.props.transactionItem} />
+                                               transactionItem={this.props.transactionItem}
+                                               banksMap={this.props.banksMap}
+                        />
                     </div>
                     <div className={main.table__cell}>
                         <button onClick={(e) => this.handleDelete(e)}> Delete </button>

@@ -36,3 +36,4 @@ function deleteTransaction(id) {
         transactions: newBankTransactions
     }
 }
+
