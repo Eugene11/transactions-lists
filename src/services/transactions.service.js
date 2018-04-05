@@ -1,4 +1,5 @@
 import Chance from 'chance'
+
 export const transactionsService = {
     addBankTransaction,
     getTransactions,

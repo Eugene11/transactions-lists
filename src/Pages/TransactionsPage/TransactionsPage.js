@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Transaction} from 'components/Transaction';
 import {SiteMap} from 'components/SiteMap'
 import {TableTransactionsHeader} from 'components/TableTransactionsHeader'
@@ -19,14 +19,14 @@ class TransactionsPage extends Component {
         const banksMap = new Map(banksIdNameArray);
 
         const transactions = this.props.transactions.map((item, index) =>
-            <Transaction key={item.id+"__"+index} transactionItem={item} sortIndex={index} banksMap={banksMap}/>
+            <Transaction key={item.id + "__" + index} transactionItem={item} sortIndex={index} banksMap={banksMap}/>
         );
 
         return (
             <div className="transaction-list">
                 <SiteMap pageCode="TransactionsPage"/>
                 <div className={main.transaction__content}>
-                    <TableTransactionsHeader />
+                    <TableTransactionsHeader/>
                     <div>
                         {transactions}
                     </div>
@@ -35,13 +35,14 @@ class TransactionsPage extends Component {
         );
     }
 }
+
 function mapStateToProps(state) {
-    const {transactions } = state;
+    const {transactions} = state;
     return {
         transactions: transactions.transactions
     };
 }
 
 const connectedTransactionsPage = connect(mapStateToProps)(TransactionsPage);
-export { connectedTransactionsPage as TransactionsPage };
+export {connectedTransactionsPage as TransactionsPage};
 

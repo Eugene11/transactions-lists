@@ -1,4 +1,4 @@
-import { alertConstants } from 'constants/index';
+import {alertConstants} from 'constants/index';
 
 export const alertActions = {
     success,
@@ -6,9 +6,9 @@ export const alertActions = {
 };
 
 function success(message) {
-    return { type: alertConstants.SUCCESS, message };
+    return {type: alertConstants.SUCCESS, message};
 }
 
 function error(message) {
-    return { type: alertConstants.ERROR, message };
+    return {type: alertConstants.ERROR, message};
 }

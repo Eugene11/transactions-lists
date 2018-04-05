@@ -9,7 +9,8 @@ export const transactionsActions = {
 
 function addBankTransaction(amount, bankId) {
     let transaction = transactionsService.addBankTransaction(amount, bankId);
-    return { type: transactionsConstants.ADDED_TRANSACTION,
+    return {
+        type: transactionsConstants.ADDED_TRANSACTION,
         lastTransaction: transaction
     }
 }
@@ -27,12 +28,15 @@ function getTransactions() {
             );
     };
 
-    function success(transactions) { return { type: transactionsConstants.TRANSACTIONS_GET_SUCCESS, transactions } }
+    function success(transactions) {
+        return {type: transactionsConstants.TRANSACTIONS_GET_SUCCESS, transactions}
+    }
 }
 
 function deleteTransaction(id) {
     let newBankTransactions = transactionsService.deleteTransaction(id);
-    return { type: transactionsConstants.DELETED_TRANSACTION,
+    return {
+        type: transactionsConstants.DELETED_TRANSACTION,
         transactions: newBankTransactions
     }
 }

@@ -8,7 +8,7 @@ export const banksActions = {
 
 function fillBanks() {
     let banks = banksService.fillBanks();
-    return { type: banksConstants.BANKS_GET_SUCCESS, banks }
+    return {type: banksConstants.BANKS_GET_SUCCESS, banks}
 }
 
 function getBanks() {
@@ -25,5 +25,7 @@ function getBanks() {
             );
     };
 
-    function success(banks) { return { type: banksConstants.BANKS_GET_SUCCESS, banks } }
+    function success(banks) {
+        return {type: banksConstants.BANKS_GET_SUCCESS, banks}
+    }
 }

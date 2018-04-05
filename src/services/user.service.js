@@ -6,7 +6,7 @@ export const userService = {
 
 function login(username, password) {
 
-    if (username === "name" && password==="pass") {
+    if (username === "name" && password === "pass") {
         const user = {"usename": username, "password": password};
         localStorage.setItem('user', JSON.stringify(user));
         return Promise.resolve(user);

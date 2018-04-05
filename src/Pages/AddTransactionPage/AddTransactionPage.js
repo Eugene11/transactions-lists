@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {BanksItems} from 'components/BanksItems';
 import {transactionsActions} from 'actions/index';
 import {SiteMap} from 'components/SiteMap';
 import main from 'main.scss'
+import withBanks from 'decorators/withBanks';
 
+@withBanks
 class AddTransactionPage extends Component {
 
     constructor(props) {
@@ -14,29 +16,28 @@ class AddTransactionPage extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentWillReceiveProps(nextProps){
-        if (nextProps.banks !== this.props.banks) {
-            let firstBank = nextProps.banks[0];
+    componentDidMount() {
+        const {amount, bankId} = this.state;
+        if (amount === null && bankId === null) {
+            let firstBank = this.props.banks[0];
             if (firstBank) {
                 this.setState({
-                    amount : "",
+                    amount: "",
                     bankId: firstBank.id,
                 });
             }
         }
     }
 
-
     handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({ [name]: value });
+        const {name, value} = e.target;
+        this.setState({[name]: value});
     }
 
     handleSubmit(e) {
         e.preventDefault();
-
-        let { amount, bankId } = this.state;
-        const { dispatch } = this.props;
+        let {amount, bankId} = this.state;
+        const {dispatch} = this.props;
 
         if (amount && bankId) {
             dispatch(transactionsActions.addBankTransaction(amount, bankId));
@@ -44,8 +45,6 @@ class AddTransactionPage extends Component {
     }
 
     render() {
-
-
         return (
             <div>
                 <SiteMap pageCode="AddTransactionPage"/>
@@ -57,7 +56,7 @@ class AddTransactionPage extends Component {
                                 <label className={main.transaction_form__group__amount_label}
                                        htmlFor="amount">Amount</label>
                                 <input className={main.transaction_form__group__amount__input}
-                                       type="text" name="amount" onChange={this.handleChange} />
+                                       type="text" name="amount" onChange={this.handleChange}/>
                                 <div className="clear-class"></div>
                             </div>
                             <div>
@@ -85,9 +84,8 @@ class AddTransactionPage extends Component {
     }
 }
 
-
 function mapStateToProps(state) {
-    const { transactions, banks } = state;
+    const {transactions, banks} = state;
     return {
         transactions: transactions,
         banks: banks.banks
@@ -95,5 +93,5 @@ function mapStateToProps(state) {
 }
 
 const connectedAddTransactionPage = connect(mapStateToProps)(AddTransactionPage);
-export { connectedAddTransactionPage as AddTransactionPage };
+export {connectedAddTransactionPage as AddTransactionPage};
 

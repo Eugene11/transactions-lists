@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { userActions } from 'actions/index';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {userActions} from 'actions/index';
 
 function mapStateToProps(state) {
-    const { loggedIn } = state.authentication;
+    const {loggedIn} = state.authentication;
     return {
         loggedIn
     };
@@ -25,12 +25,13 @@ const withAuthCheck = (WrapedComponent) => {
         render() {
 
             if (this.props.loggedIn === undefined)
-               return null;
+                return null;
             return (
                 <WrapedComponent {...this.props} />
             );
         }
     }
+
     return AsyncComponent;
 }
 export default withAuthCheck;

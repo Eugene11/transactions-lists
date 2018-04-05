@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {transactionsActions} from 'actions/index';
 
 
 function mapStateToProps(state) {
-    const { transactions } = state.transactions;
+    const {transactions} = state.transactions;
     return {
         transactions
     };
@@ -21,7 +21,8 @@ const withTransactions = (WrapedComponent) => {
         }
 
         componentWillMount = async () => {
-            await this.props.dispatch(transactionsActions.getTransactions());
+            if (!this.props.transactions)
+                await this.props.dispatch(transactionsActions.getTransactions());
         }
 
 
@@ -34,6 +35,7 @@ const withTransactions = (WrapedComponent) => {
             );
         }
     }
+
     return AsyncComponent;
 }
 export default withTransactions;

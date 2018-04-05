@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {banksActions} from 'actions/index';
 
 function mapStateToProps(state) {
-    const { banks } = state.banks;
+    const {banks} = state.banks;
     return {
         banks
     };
@@ -24,7 +24,6 @@ const withBanks = (WrapedComponent) => {
         }
 
         render() {
-
             if (!this.props.banks)
                 return null;
 
@@ -43,6 +42,7 @@ const withBanks = (WrapedComponent) => {
         }
 
     }
+
     return AsyncComponent;
 }
 export default withBanks;

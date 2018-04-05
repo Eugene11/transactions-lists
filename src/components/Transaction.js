@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {BankName} from 'components/index';
 import {transactionsActions} from 'actions/index';
 import main from 'main.scss'
@@ -9,7 +9,7 @@ class Transaction extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id : this.props.transactionItem.id
+            id: this.props.transactionItem.id
         };
     }
 
@@ -33,13 +33,13 @@ class Transaction extends Component {
                     </div>
                     <div className={main.table__cell}>
                         <BankName key={this.props.transactionItem.id}
-                                               bankId={this.props.transactionItem.bankId}
-                                               transactionItem={this.props.transactionItem}
-                                               banksMap={this.props.banksMap}
+                                  bankId={this.props.transactionItem.bankId}
+                                  transactionItem={this.props.transactionItem}
+                                  banksMap={this.props.banksMap}
                         />
                     </div>
                     <div className={main.table__cell}>
-                        <button onClick={(e) => this.handleDelete(e)}> Delete </button>
+                        <button onClick={(e) => this.handleDelete(e)}> Delete</button>
                     </div>
                     <div className={main.clear__class}></div>
                 </div>
@@ -49,4 +49,4 @@ class Transaction extends Component {
 }
 
 const connectedTransaction = connect()(Transaction);
-export { connectedTransaction as Transaction };
+export {connectedTransaction as Transaction};

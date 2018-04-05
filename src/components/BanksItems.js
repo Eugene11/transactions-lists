@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import withBanks from 'decorators/withBanks';
 
 @withBanks
@@ -7,7 +7,7 @@ class BanksItems extends Component {
 
     render() {
         let listBanks;
-        if ( this.props.banks !== undefined ) {
+        if (this.props.banks !== undefined) {
             listBanks = this.props.banks.map((item) =>
                 <option key={item.id} value={item.id}>{item.name}</option>
             );
@@ -28,13 +28,13 @@ class BanksItems extends Component {
 }
 
 function mapStateToProps(state) {
-    const { banks } = state;
+    const {banks} = state;
     return {
         banks: banks.banks
     };
 }
 
 const connectedBanksList = connect(mapStateToProps)(BanksItems);
-export { connectedBanksList as BanksItems };
+export {connectedBanksList as BanksItems};
 
 

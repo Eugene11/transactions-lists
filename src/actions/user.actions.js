@@ -1,6 +1,6 @@
-import { userConstants } from 'constants/index';
-import { userService } from 'services/index';
-import { alertActions, banksActions } from 'actions/index';
+import {userConstants} from 'constants/index';
+import {userService} from 'services/index';
+import {alertActions, banksActions} from 'actions/index';
 
 export const userActions = {
     login,
@@ -10,7 +10,7 @@ export const userActions = {
 
 function login(username, password) {
     return dispatch => {
-        dispatch(request({ username }));
+        dispatch(request({username}));
 
         userService.login(username, password)
             .then(
@@ -26,9 +26,17 @@ function login(username, password) {
             );
     };
 
-    function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+    function request(user) {
+        return {type: userConstants.LOGIN_REQUEST, user}
+    }
+
+    function success(user) {
+        return {type: userConstants.LOGIN_SUCCESS, user}
+    }
+
+    function failure(error) {
+        return {type: userConstants.LOGIN_FAILURE, error}
+    }
 }
 
 /**
@@ -51,11 +59,13 @@ function checkLogin(username) {
             );
     };
 
-    function success(user) { return { type: userConstants.LOGIN_CHECK, user } }
+    function success(user) {
+        return {type: userConstants.LOGIN_CHECK, user}
+    }
 
 }
 
 function logout() {
     userService.logout();
-    return { type: userConstants.LOGOUT };
+    return {type: userConstants.LOGOUT};
 }
